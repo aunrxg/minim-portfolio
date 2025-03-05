@@ -1,6 +1,5 @@
-import { PageHeader } from "@/components/PageHeader";
-import { Title } from "@/components/Title";
-import { CONTACT } from "@/constants/contact";
+import { PageHeader, Title } from "@/components";
+import { CONTACT } from "@/constants";
 import Link from "next/link";
 
 

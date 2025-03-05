@@ -1,10 +1,8 @@
-// import Image from "next/image";
-
-import { Title } from "@/components/Title";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { PROJECTS } from "@/constants/projects";
+import { Title } from "@/components";
+import { PROJECTS, EXPERIENCES } from "@/constants";
 
 
 export default function Home() {
@@ -103,6 +101,44 @@ export default function Home() {
 
       </section> */}
 
+      <section>
+        <Title as="h2" variant="secondary" className="mb-4 mt-8">
+          Experience
+        </Title>
+
+        <div className="divide-y divide-slate-200">
+          {EXPERIENCES.map((exp) => {
+            return (
+              <div className="flex gap-4 py-6" key={exp.date}>
+                <Image
+                  width={100}
+                  height={100}
+                  src={exp.logo}
+                  alt={`${exp.company} logo`}
+                />
+                <div className="flex flex-col col-span-9">
+                  <span className="text-slate-800 font-semibold text-lg">
+                    {exp.company}
+                  </span>
+                  <span className="text-slate-700 text-lg">
+                    {exp.role}
+                  </span>
+                  <span className="block mt-4 text-slate-500 col-span-2 text-sm font-medium tracking-tighter font-mono">
+                    {exp.date}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <Link
+          href="https://drive.google.com/file/d/19cvLkKJ1vJapb7WdQ2doGA3ogU-0RgpR/view?usp=sharing"
+          target="_blank"
+          className="block my-8 text-slate-500 text-sm font-medium"
+        >
+          Downlaod resume →
+        </Link>
+      </section>
     </main>
   );
 }

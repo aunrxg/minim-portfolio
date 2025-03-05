@@ -1,6 +1,5 @@
-import { PageHeader } from "@/components/PageHeader";
-import { Title } from "@/components/Title";
-import { EXPERIENCES } from "@/constants/experience";
+import { PageHeader, Title } from "@/components";
+import { EXPERIENCES } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -63,7 +62,7 @@ export default async function InfoPage() {
           })}
         </div>
         <Link
-          href="/resume.pdf"
+          href="https://drive.google.com/file/d/19cvLkKJ1vJapb7WdQ2doGA3ogU-0RgpR/view?usp=sharing"
           target="_blank"
           className="block my-8 text-slate-500 text-sm font-medium"
         >

@@ -16,8 +16,8 @@ export const CONTACT: {
   },
   {
     method: "GitHub",
-    link: "https://github.com/anuraginbytes",
-    label: "github/anuraginbytes",
+    link: "https://github.com/aunrxg",
+    label: "github/aunrxg",
   },
   {
     method: "LinkedIn",

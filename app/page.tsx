@@ -83,7 +83,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-16 pt-10">
+      {/* <section className="pb-16 pt-10">
 
         <Title as="h2" variant="secondary" className="mb-8">
           Recent writings
@@ -101,7 +101,8 @@ export default function Home() {
           </span>
         </Link>
 
-      </section>
+      </section> */}
+
     </main>
   );
 }

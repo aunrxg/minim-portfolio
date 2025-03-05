@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import clsx from "clsx";
 import Link from "next/link";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const SaansFont = localFont({
   src: './saans-font.woff2',
@@ -49,8 +50,16 @@ export default function RootLayout({
           </header>
           {children}
           <footer className="px-4 md:px-0 border-t border-slate-200 py-8 text-slate-700 font-mono text-xs tracking-tighter flex justify-between">
-            <p>
-              social media
+            <p className=" gap-4 flex ">
+              <Link href='https://x.com/aunrxg'>
+                <FaXTwitter />
+              </Link>
+              <Link href='https://github.com/aunrxg'>
+                <FaGithub />
+              </Link>
+              <Link href='https://linkedin.com/in/anurag-poddar-dev'>
+                <FaLinkedin />
+              </Link>
             </p>
             <p>
               design and inspiration &copy; alex pate

@@ -38,7 +38,7 @@ export default function Home() {
         </p>
         <div className="lg:w-[170%] grid grid-cols-1 md:grid-cols-2 grid-flow-dense gap-8 mt-16">
           {PROJECTS.map((project) => {
-            const isLink = !!project.href;
+            const isLink = !project.href;
             const WrappingComponent = isLink ? Link : 'div';
 
             return (

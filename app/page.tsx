@@ -1,23 +1,23 @@
-"use client";
+// "use client";
 
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { Title } from "@/components";
 import { PROJECTS, EXPERIENCES } from "@/constants";
-import { annotate } from "rough-notation";
-import { useEffect } from "react";
+// import { annotate } from "rough-notation";
+// import { useEffect } from "react";
 
 
 export default function Home() {
 
-  useEffect(() => {
-    const e = document.querySelector('.yoink') as HTMLElement | null;
-    if(e) {
-      const annotation = annotate(e, { type: "circle", color: "red" });
-      annotation.show();
-    }
-  }, [])
+  // useEffect(() => {
+  //   const e = document.querySelector('.yoink') as HTMLElement | null;
+  //   if(e) {
+  //     const annotation = annotate(e, { type: "circle", color: "red" });
+  //     annotation.show();
+  //   }
+  // }, [])
 
   return (
     <main className="px-4 md:px-0">

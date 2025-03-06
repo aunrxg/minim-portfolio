@@ -23,7 +23,7 @@ export default function Home() {
     <main className="px-4 md:px-0">
       <section className="pb-14 mb-14 border-b border-slate-300">
         <h1 className="font-semibold text-4xl mb-4 text-slate-950">
-          <span className="yoink">Yoink</span>, I&apos;m Anurag.
+          Anurag Poddar.
           <span className="block text-slate-500 font-normal text-2xl">
             An Independepnt developer from India.
           </span>

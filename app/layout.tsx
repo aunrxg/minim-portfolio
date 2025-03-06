@@ -35,6 +35,7 @@ export const metadata: Metadata = {
       }
     ],
   },
+  metadataBase: new URL('https://minim-portfolio.vercel.app/'),
 };
 
 export default function RootLayout({

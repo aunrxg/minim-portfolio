@@ -20,6 +20,21 @@ const JetBrainsMonoFont = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Anurag Poddar - Full Stack Developer",
   description: "Anurag Poddar is Full Stack Developer based in India.",
+  openGraph: {
+    title: "Anurag Poddar - Full Stack Developer",
+    type: "website",
+    siteName: "Anurag Poddar - Full Stack Developer",
+    url: "https://minim-portfolio.vercel.app/",
+    description: "Anurag Poddar is Full Stack Developer based in India.",
+    images: [
+      {
+        url: "/open-graph.png",
+        height: "1200",
+        width: "630",
+        alt: "Anurag Poddar - Full Stack Developer",
+      }
+    ],
+  },
 };
 
 export default function RootLayout({

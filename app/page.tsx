@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Title } from "@/components";
 import { PROJECTS, EXPERIENCES } from "@/constants";
-import { cn } from "@/lib/utils"
 // import { annotate } from "rough-notation";
 // import { useEffect } from "react";
 

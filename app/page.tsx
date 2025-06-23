@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Title } from "@/components";
 import { PROJECTS, EXPERIENCES } from "@/constants";
+import { cn } from "@/lib/utils"
 // import { annotate } from "rough-notation";
 // import { useEffect } from "react";
 
@@ -24,20 +25,60 @@ export default function Home() {
       <section className="pb-14 mb-14 border-b border-slate-300">
         <h1 className="font-semibold text-4xl mb-4 text-slate-950">
           Anurag Poddar.
-          <span className="block text-slate-500 font-normal text-2xl">
-            An Independepnt developer from India.
+          <span className="block text-slate-500 font-normal text-xl">
+            21, Delhi | Full Stack Engineer
           </span>
         </h1>
-        <p className="text-slate-700 text-lg md:text-xl leading-normal">
+        <p className="text-slate-700 text-md md:text-lg leading-normal">
           I build scalable and high-performance software utilizing modern technologies. I am currently working with the Saral Groups, empowering individuals to build startups. I continuously build stuffs to satisfy my interest in data, video technology, and Web3.
         </p>
         <Link
           href="/info"
           className="group bg-slate-950 hover:bg-slate-800 transition-colors inline-block mt-8 font-semibold rounded-full px-8 py-3 text-white text-xs">
-          More Information {"  "}
+          More Information &nbsp;&nbsp;
           <span className="inline-block group-hover:translate-x-2 transition-transform">
             →
           </span>
+        </Link>
+      </section>
+
+      <section className="border-b border-slate-300 mb-14">
+        <Title as="h2" variant="secondary" className="mb-4 mt-8">
+          Experience
+        </Title>
+      
+        <div className="divide-y divide-slate-200">
+          {EXPERIENCES.map((exp) => {
+            return (
+              <Link href={exp.href} target="_blank" className="flex gap-4 py-6 px-3 bg-slate-100 rounded-lg mb-1 hover:bg-slate-200/70 transition-colors" key={exp.date}>
+                <Image
+                  width={100}
+                  height={100}
+                  src={exp.logo}
+                  alt={`${exp.company} logo`}
+                />
+                <div className="flex flex-col col-span-9">
+                  <span className="text-slate-800 font-semibold text-lg">
+                    {exp.company}
+                  </span>
+                  <span className="text-slate-700 text-lg">
+                    {exp.role}
+                  </span>
+                  <span className="block mt-4 text-slate-500 col-span-2 text-sm font-medium tracking-tighter font-mono">
+                    {exp.date}
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+        <Link
+          href="/ANURAG_RESUME.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block my-8 text-slate-500 text-sm font-medium"
+        >
+          Download resume →
         </Link>
       </section>
 
@@ -86,7 +127,7 @@ export default function Home() {
           <Link
             href="/projects"
             className="group bg-slate-950 hover:bg-slate-800 transition-colors inline-block mt-8 font-semibold rounded-full px-8 py-3 text-white text-xs">
-            View All Projects {"  "}
+            View All Projects &nbsp; &nbsp;
             <span className="inline-block group-hover:translate-x-2 transition-transform">
               →
             </span>
@@ -94,7 +135,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section className="pb-16 pt-10">
+      <section className="pb-16 pt-10">
 
         <Title as="h2" variant="secondary" className="mb-8">
           Recent writings
@@ -106,53 +147,14 @@ export default function Home() {
         <Link
           href="/posts"
           className="group bg-slate-950 hover:bg-slate-800 transition-colors inline-block mt-8 font-semibold rounded-full px-8 py-3 text-white text-xs">
-          View All Posts {"  "}
+          View All Posts &nbsp; &nbsp;
           <span className="inline-block group-hover:translate-x-2 transition-transform">
             →
           </span>
         </Link>
 
-      </section> */}
-
-      <section>
-        <Title as="h2" variant="secondary" className="mb-4 mt-8">
-          Experience
-        </Title>
-
-        <div className="divide-y divide-slate-200">
-          {EXPERIENCES.map((exp) => {
-            return (
-              <Link href={exp.href} target="_blank" className="flex gap-4 py-6" key={exp.date}>
-                <Image
-                  width={100}
-                  height={100}
-                  src={exp.logo}
-                  alt={`${exp.company} logo`}
-                />
-                <div className="flex flex-col col-span-9">
-                  <span className="text-slate-800 font-semibold text-lg">
-                    {exp.company}
-                  </span>
-                  <span className="text-slate-700 text-lg">
-                    {exp.role}
-                  </span>
-                  <span className="block mt-4 text-slate-500 col-span-2 text-sm font-medium tracking-tighter font-mono">
-                    {exp.date}
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-        <Link
-          href="/ANURAG_RESUME.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block my-8 text-slate-500 text-sm font-medium"
-        >
-          Downlaod resume →
-        </Link>
       </section>
+
     </main>
   );
 }

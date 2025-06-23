@@ -6,16 +6,16 @@ export const PROJECTS: {
   image: string;
 }[] = [
   {
+    title: 'GeeksCodeAI',
+    href: 'https://geekscodeai.aunrxg.live',
+    description:'Leetcode on weeds',
+    image: '/geekscodeai.png',
+  },
+  {
     title: 'StreamSync',
     href: 'https://github.com/aunrxg/video-conferencing-app',
     description: 'Realtime Video Conferencing App',
     image: '/streamsync.png',
-  },
-  {
-    title: 'ChronoGit',
-    href: 'https://github.com/aunrxg/chrono-git',
-    description:'VSCode Extension to monitor your true contributions',
-    image: '/chronogit.png',
   },
   // {
   //   title: 'Project3',

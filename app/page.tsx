@@ -122,7 +122,7 @@ export default function Home() {
         <div className="divide-y divide-slate-200">
           {EXPERIENCES.map((exp) => {
             return (
-              <div className="flex gap-4 py-6" key={exp.date}>
+              <Link href={exp.href} target="_blank" className="flex gap-4 py-6" key={exp.date}>
                 <Image
                   width={100}
                   height={100}
@@ -140,13 +140,14 @@ export default function Home() {
                     {exp.date}
                   </span>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
         <Link
-          href="https://drive.google.com/file/d/19cvLkKJ1vJapb7WdQ2doGA3ogU-0RgpR/view?usp=sharing"
+          href="/ANURAG_RESUME.pdf"
           target="_blank"
+          rel="noopener noreferrer"
           className="block my-8 text-slate-500 text-sm font-medium"
         >
           Downlaod resume →

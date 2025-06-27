@@ -5,11 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Title } from "@/components";
 import { PROJECTS, EXPERIENCES } from "@/constants";
+import { getAllPostsList } from "@/lib/articles";
+import { ArticleLink } from "@/components/ArticleLink";
 // import { annotate } from "rough-notation";
 // import { useEffect } from "react";
 
 
-export default function Home() {
+export default async function Home() {
 
   // useEffect(() => {
   //   const e = document.querySelector('.yoink') as HTMLElement | null;
@@ -18,6 +20,7 @@ export default function Home() {
   //     annotation.show();
   //   }
   // }, [])
+  const posts = await getAllPostsList(true);
 
   return (
     <main className="px-4 md:px-0">
@@ -141,7 +144,17 @@ export default function Home() {
         </Title>
 
         <div className="divide-y">
-          coming soon
+          {posts.slice(0, 3).map((post) => {
+            return (
+              <ArticleLink
+                key={post.slug}
+                href={post.href}
+                title={post.meta.title}
+                date={post.date}
+                summary={post.meta.summary}
+              />
+            );
+          })}
         </div>
         <Link
           href="/posts"

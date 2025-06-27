@@ -59,9 +59,9 @@ export default function RootLayout({
               <h1 className="text-base font-mono font-semibold text-slate-950">aunrxg</h1>
             </Link>
             <nav className="flex gap-4">
-              <Link href="/info" className="text-slate-950 text-sm tracking-tighter font-mono font-semibold">Information</Link>
+              {/* <Link href="/info" className="text-slate-950 text-sm tracking-tighter font-mono font-semibold">Information</Link> */}
               <Link href="/projects" className="text-slate-950 text-sm tracking-tighter font-mono font-semibold">Projects</Link>
-              {/* <Link href="/posts" className="text-slate-950 text-sm tracking-tighter font-mono font-semibold">Blogs</Link> */}
+              <Link href="/posts" className="text-slate-950 text-sm tracking-tighter font-mono font-semibold">Writings</Link>
               <Link href="/contacts" className="text-slate-950 text-sm tracking-tighter font-mono font-semibold">Contact</Link>
             </nav>
           </header>

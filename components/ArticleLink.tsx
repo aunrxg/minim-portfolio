@@ -12,7 +12,7 @@ interface Props {
 
 export const ArticleLink: FC<Props> = ({ title, summary, href, date }) => {
   return (
-    <Link href={href} className="first:pt-0 py-8 flex flex-col gap-4 border-b border-slate-200">
+    <Link href={href} className="first:pt-0 py-8 flex flex-col gap-4 border-slate-200">
       <div className="flex flex-col">
         <Title as="h2" variant="secondary">
           {title}

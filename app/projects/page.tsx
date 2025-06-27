@@ -1,20 +1,22 @@
 import { PageHeader } from "@/components";
 import { ArticleLink } from "@/components/ArticleLink";
-import { ALLPROJECTS } from "@/constants";
+import { getAllPostsList } from "@/lib/articles";
 
 
-export default function projectPage() {
+export default async function projectPage() {
+
+  const projects = await getAllPostsList(false);
   return (
     <main className="px-4 md:px-0">
       <PageHeader title="Professional Projects" />
       <section className="py-5">
-        {ALLPROJECTS.map((pro) => {
+        {projects.map((pro) => {
           return (
             <ArticleLink
-              key={pro.title}
+              key={pro.slug}
               href={pro.href}
-              title={pro.title}
-              summary={pro.description}
+              title={pro.meta.title}
+              summary={pro.meta.summary}
               date={pro.date}
             />
           )

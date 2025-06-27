@@ -4,7 +4,7 @@ import { getAllPostPaths, getDateAndSlugFromFilename, getPostBySlug } from '@/li
 
 // ✅ generateStaticParams to statically generate all slugs
 export async function generateStaticParams() {
-  return await getAllPostPaths(true);
+  return await getAllPostPaths(false);
 }
 
 // ✅ your dynamic route
@@ -13,14 +13,14 @@ export default async function PostPage(props: { params: { slug: string } }) {
     const { slug } = props.params
     console.log("Rendering post for slug:", slug);
   
-    const filename = getPostBySlug(slug, true);
+    const filename = getPostBySlug(slug, false);
   
     if(!filename) {
       console.log("Post not found for slug:", slug);
       notFound();
     }
   
-    const { default: Post, meta } = await import(`@/posts/${filename}`);
+    const { default: Post, meta } = await import(`@/projects/${filename}`);
     const parsed = getDateAndSlugFromFilename(filename);
     if(!parsed) notFound();
 

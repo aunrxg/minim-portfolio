@@ -5,6 +5,7 @@ import "./globals.css";
 import clsx from "clsx";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { Analytics } from "@vercel/analytics/next";
 
 const SaansFont = localFont({
   src: './saans-font.woff2',
@@ -81,6 +82,7 @@ export default function RootLayout({
               design and inspiration &copy; alex pate
             </p>
           </footer>
+          <Analytics />
         </div>
       </body>
     </html>

@@ -1,6 +1,9 @@
 import { notFound } from 'next/navigation';
 import { getAllPostPaths, getDateAndSlugFromFilename, getPostBySlug } from '@/lib/articles';
 
+type Params = {
+  slug: string;
+};
 
 // ✅ generateStaticParams to statically generate all slugs
 export async function generateStaticParams() {
@@ -8,9 +11,9 @@ export async function generateStaticParams() {
 }
 
 // ✅ your dynamic route
-export default async function PostPage(props: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: { params: Params }) {
     // if (!params?.slug) return notFound();
-    const { slug } = props.params
+    const slug = params.slug;
     console.log("Rendering post for slug:", slug);
   
     const filename = getPostBySlug(slug, false);

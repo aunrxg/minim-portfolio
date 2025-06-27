@@ -1,5 +1,45 @@
 import { notFound } from 'next/navigation';
 import { getAllPostPaths, getDateAndSlugFromFilename, getPostBySlug } from '@/lib/articles';
+import { Metadata, ResolvingMetadata } from 'next';
+
+export async function generateMetadata({ 
+  params
+}: { 
+  params: Promise<{ slug: string }>;
+},
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+
+  const { slug } = await params
+  const filename = getPostBySlug(slug, false);
+  if(!filename) return notFound();
+
+  const { meta } = await import(`@/posts/${filename}`);
+
+  const parentMeta = await parent;
+
+  return {
+    title: meta?.title || parentMeta?.title,
+    description: meta?.summary || parentMeta?.description,
+    publisher: 'Anurag Poddar',
+    creator: 'Anurag Poddar',
+    twitter: {
+      title: meta?.title || parentMeta?.twitter?.title,
+      description: meta?.summary || parentMeta?.twitter?.description || undefined,
+      creator: '@aunrxg',
+      site: undefined,
+      siteId: undefined,
+    },
+    openGraph: {
+      ...parentMeta?.openGraph,
+      title: meta?.title,
+      description: meta?.summary,
+      url: `https://aunrxg.live/projects/${slug}`,
+      images: meta?.opImage ? [meta.ogImage] : parentMeta?.openGraph?.images,
+      type: 'article',
+    },
+  };
+}
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return await getAllPostPaths(false);

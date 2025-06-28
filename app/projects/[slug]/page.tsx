@@ -14,7 +14,7 @@ export async function generateMetadata({
   const filename = getPostBySlug(slug, false);
   if(!filename) return notFound();
 
-  const { meta } = await import(`@/posts/${filename}`);
+  const { meta } = await import(`@/projects/${filename}`);
 
   const parentMeta = await parent;
 

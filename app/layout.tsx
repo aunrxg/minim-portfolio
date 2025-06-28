@@ -19,14 +19,18 @@ const JetBrainsMonoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Anurag Poddar - Full Stack Developer",
+  metadataBase: new URL("https://aunrxg.live"),
+  title: {
+    default: "Anurag Poddar - Full Stack Developer",
+    template: "%s | Anurag Poddar"
+  },
   description: "Anurag Poddar is Full Stack Developer based in India.",
   openGraph: {
     title: "Anurag Poddar - Full Stack Developer",
+    description: "Anurag Poddar is Full Stack Developer based in India.",
     type: "website",
     siteName: "Anurag Poddar - Full Stack Developer",
-    url: "https://minim-portfolio.vercel.app/",
-    description: "Anurag Poddar is Full Stack Developer based in India.",
+    url: "https://aunrxg.live/",
     images: [
       {
         url: "/open-graph.png",
@@ -36,7 +40,11 @@ export const metadata: Metadata = {
       }
     ],
   },
-  metadataBase: new URL('https://minim-portfolio.vercel.app/'),
+  twitter: {
+    card: "summary_large_image",
+    creator: "@aunrxg",
+    images: ['/open-graph.png'],
+  }
 };
 
 export default function RootLayout({

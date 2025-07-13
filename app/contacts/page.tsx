@@ -8,7 +8,7 @@ export default function contactPage() {
     <main className="px-4 md:px-0">
       <PageHeader title="Contact" />
       <section className="pb-8">
-        <p className="text-lg mb-4">
+        <p className="text-lg mb-4 text-yo-secondary">
           If you&apos;d like to get in touch, reach me out using following methods.
         </p>
 
@@ -16,10 +16,10 @@ export default function contactPage() {
           {CONTACT.map((cont) => {
             return (
               <div className="flex flex-col" key={cont.method}>
-                <Title as="h2" variant="tertiary">
+                <Title as="h2" variant="tertiary" className="text-yo-secondary">
                   {cont.method}
                 </Title>
-                <Link href={cont.link} className="text-slate-700">
+                <Link href={cont.link} className="text-yo-tertiary">
                   {cont.label}
                 </Link>
               </div>

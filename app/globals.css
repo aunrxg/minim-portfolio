@@ -25,6 +25,67 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+@theme {
+  --color-yo-primary: var(--yo-primary);
+  --color-yo-secondary: var(--yo-secondary);
+  --color-yo-tertiary: var(--yo-tertiary);
+  --color-yo-border: var(--yo-border);
+  --color-background: var(--background);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-button-text: var(--button-text);
+  --color-button-color: var(--button-color);
+}
+
+:root {
+  --background: oklch(98.4% 0.003 247.858);
+  --yo-primary: oklch(12.9% 0.042 264.695);
+  --yo-secondary: oklch(37.2% 0.044 257.287);
+  --yo-tertiary: oklch(55.4% 0.046 257.417);
+  --yo-border: oklch(86.9% 0.022 252.894);
+  --card: oklch(96.8% 0.007 247.896);
+  --card-hover: oklch(92.9% 0.013 255.508);
+  --button-text: oklch(98.4% 0.003 247.858);
+  --button-color: oklch(12.9% 0.042 264.695)
+}
+
+.light {
+  --background: #f8fafc;
+  --yo-primary: oklch(12.9% 0.042 264.695);
+  --yo-secondary: oklch(37.2% 0.044 257.287);
+  --yo-tertiary: oklch(55.4% 0.046 257.417);
+  --yo-border: oklch(86.9% 0.022 252.894);
+  --card: oklch(96.8% 0.007 247.896);
+  --card-hover: oklch(92.9% 0.013 255.508);
+  --button-text: oklch(98.4% 0.003 247.858);
+  --button-color: oklch(12.9% 0.042 264.695)
+}
+
+.dark {
+  --background: oklch(12.9% 0.042 264.695);
+  --yo-primary: oklch(96.7% 0.003 264.542);
+  --yo-secondary: oklch(87.2% 0.01 258.338);
+  --yo-tertiary: oklch(58.6% 0.253 17.585);
+  --yo-border: oklch(41% 0.159 10.272);
+  --card: oklch(27.9% 0.041 260.031);
+  --card-hover: oklch(20.8% 0.042 265.755);
+  --button-text: oklch(12.9% 0.042 264.695);
+  --button-color: oklch(96.7% 0.003 264.542);
+}
+
+pre {
+  font-family: monospace;
+}
+ /* Optional scrollbar tweak */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+pre::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
 ::selection {
   color: white;
   background-color: black;

@@ -62,10 +62,10 @@ export default async function PostPage({
   return (
     <main className="px-4 md:px-0 prose prose-lg mx-auto py-10">
       <section>
-        <h1 className="font-bold tracking-tight text-5xl text-slate-900">
+        <h1 className="font-bold tracking-tight text-5xl text-yo-primary">
           {meta.title}
         </h1>
-        <span className="text-slate-500 text-sm tracking-tight font-mono block mt-4">
+        <span className="text-yo-tertiary text-sm tracking-tight font-mono block mt-4">
           Published on{' '}
           <time dateTime={parsed.date}>
             {new Intl.DateTimeFormat('en-GB', {
@@ -75,8 +75,8 @@ export default async function PostPage({
         </span>
       </section>
 
-      <section className="py-5">
-        <article className="prose prose-lg">
+      <section className="py-5 text-yo-secondary">
+        <article className="prose prose-lg text-yo-secondary">
           <Post />
         </article>
       </section>

@@ -12,16 +12,16 @@ interface Props {
 
 export const ArticleLink: FC<Props> = ({ title, summary, href, date }) => {
   return (
-    <Link href={href} className="first:pt-0 py-8 flex flex-col gap-4 border-slate-200">
+    <Link href={href} className="first:pt-0 py-8 flex flex-col gap-4 border-yo-border">
       <div className="flex flex-col">
-        <Title as="h2" variant="secondary">
+        <Title as="h2" variant="secondary" className="text-yo-primary">
           {title}
         </Title>
-        <span className="text-slate-500 font-mono tracking-tighter text-sm block mt-2">
+        <span className="text-yo-tertiary font-mono tracking-tighter text-sm block mt-2">
           Published on {date}
         </span>
 
-        <p className="mt-2 text-slate-700 text-base">{summary}</p>
+        <p className="mt-2 text-yo-secondary text-base">{summary}</p>
       </div>
     </Link>
   )

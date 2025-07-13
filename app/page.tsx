@@ -7,8 +7,6 @@ import { Title } from "@/components";
 import { PROJECTS, EXPERIENCES } from "@/constants";
 import { getAllPostsList } from "@/lib/articles";
 import { ArticleLink } from "@/components/ArticleLink";
-// import { annotate } from "rough-notation";
-// import { useEffect } from "react";
 
 
 export default async function Home() {

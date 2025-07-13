@@ -6,6 +6,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { Analytics } from "@vercel/analytics/next";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const SaansFont = localFont({
   src: './saans-font.woff2',
@@ -66,11 +67,12 @@ export default function RootLayout({
             <Link href="/">
               <h1 className="text-base font-mono font-semibold text-yo-primary">aunrxg</h1>
             </Link>
-            <nav className="flex gap-4">
+            <nav className="flex items-center gap-4">
               {/* <Link href="/info" className="text-slate-950 text-sm tracking-tighter font-mono font-semibold">Information</Link> */}
               <Link href="/projects" className="text-yo-primary text-sm tracking-tighter font-mono font-semibold">Projects</Link>
               <Link href="/posts" className="text-yo-primary text-sm tracking-tighter font-mono font-semibold">Writings</Link>
               <Link href="/contacts" className="text-yo-primary text-sm tracking-tighter font-mono font-semibold">Contact</Link>
+              <ThemeToggle className="" />
             </nav>
           </header>
           {children}

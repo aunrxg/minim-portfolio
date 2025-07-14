@@ -60,7 +60,7 @@ export default async function PostPage({
   if (!parsed) return notFound();
 
   return (
-    <main className="px-4 md:px-0 prose prose-lg mx-auto py-10">
+    <main className="px-4 md:px-0 prose mx-auto py-10">
       <section>
         <h1 className="font-bold tracking-tight text-5xl text-yo-primary">
           {meta.title}
@@ -76,7 +76,7 @@ export default async function PostPage({
       </section>
 
       <section className="py-5">
-        <article className="prose prose-lg text-yo-secondary">
+        <article id='blog-content' className="prose text-yo-secondary">
           <Post />
         </article>
       </section>

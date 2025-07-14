@@ -4,13 +4,24 @@ import { useState } from "react";
 
 export default function ThemeToggle({ className }: { className: string }) {
 
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+  if (typeof window !== 'undefined') {
+    return (localStorage.getItem('theme') as 'light' | 'dark') ?? 'light';
+  }
+  return 'light';
+});
 
   const applyTheme = (newTheme: 'light' | 'dark') => {
     const root = document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(newTheme);
     localStorage.setItem('theme', newTheme);
+
+    const blogContent = document.getElementById('blog-content');
+    if(blogContent) {
+      blogContent.classList.remove('prose-dark', 'prose-light');
+      blogContent.classList.add(newTheme === 'dark' ? 'prose-dark' : 'prose-light');
+    }
   }
 
   const toggleTheme = () => {

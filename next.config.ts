@@ -1,19 +1,42 @@
-import createMDX from '@next/mdx'
+// import createMDX from '@next/mdx'
+import nextMDX from '@next/mdx'
+import rehypePrettyCode from "rehype-pretty-code";
+// import moonlightTheme from '@/public/moonlight-ii.json' with { type: 'json' };
+import remarkGfm from "remark-gfm";
+import type { Options as PrettyCodeOptions } from 'rehype-pretty-code';
+import type { NextConfig } from 'next';
  
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Configure `pageExtensions` to include markdown and MDX files
+
+const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  // Optionally, add any other Next.js config below
-  experimental: {
-    mdxRs: true
-  }
+  reactStrictMode: true,
 }
+
+const prettyCodeOptions: PrettyCodeOptions = {
+  keepBackground: false,
+  theme: "everforest-light",
+  defaultLang: 'ts',
+  onVisitLine(node) {
+    if(node.children.length == 0) {
+      node.children = [{ type: 'text', value: " " }];
+    }
+  },
+  onVisitHighlightedLine(node) {
+    node.properties.className?.push('line--highlighted');
+  },
+  onVisitHighlightedChars(node) {
+    node.properties.className = ['word--highlighted'];
+  }
+
+};
  
-const withMDX = createMDX({
-  // Add markdown plugins here, as desired
-  extension: /\.(md|mdx)$/,
-})
+const withMDX = nextMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
+  },
+});
  
 // Merge MDX config with Next.js config
 export default withMDX(nextConfig)

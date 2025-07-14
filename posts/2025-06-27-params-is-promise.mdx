@@ -14,8 +14,8 @@ The Most Frustrating TypeScript Error I Solved in Next.js 15 — and What You Ne
 
 > I was building blog and project feature for my portfolio in Next.js App router using @next/mdx, and everything worked locally… until I tried deploying to Vercel. Suddenly, I hit this frustrating error:
 
-```
-Type '{ slug: string; }' is missing the following properties from type 'Promise<any>': then, catch, finally, [Symbol.toStringTag]
+```bash showLineNumbers
+Type '{ slug: string; }' is missing the following properties from type 'Promise<any>': then, catch, finally
 ```
 
 ---
@@ -24,7 +24,7 @@ Type '{ slug: string; }' is missing the following properties from type 'Promise<
 
 ### My File: `app/posts/[slug]/page.tsx`
 
-```tsx
+```tsx showLineNumbers
 export default async function PostPage({ params }: { params: { slug: string } }) {
   const slug = params.slug;
 }
@@ -32,14 +32,14 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
 ### My `generateStaticParams()` looked like:
 
-```tsx
+```tsx showLineNumbers
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return await getAllPostPaths(true);
 }
 ```
 
 this function `getAllPostPaths` return an array with slugs something like this: 
-```
+```ts showLineNumbers
 [
   { slug: "slug-blog-1" },
   { slug: "slug-blog-2" },
@@ -51,7 +51,7 @@ and it was intended to return this.
 
 Even though everything looked right, TypeScript said:
 
-```
+```bash showLineNumbers
 Type '{ slug: string; }' is missing the following properties from type 'Promise<any>'
 ```
 
@@ -88,7 +88,7 @@ See the official [Next.js RFC & GitHub issue](https://github.com/vercel/next.js/
 
 Update your component to **await** the `params`:
 
-```tsx
+```tsx showLineNumbers
 export default async function PostPage({
   params,
 }: {
@@ -106,7 +106,7 @@ Boom. The error disappears — both locally and on Vercel.
 
 ## Final Thoughts
 
-This was hands down one of the most frustrating bugs I’ve solved — not because it was complicated, but because it was undocumented and subtle. The lesson?
+This was hands down one of the most frustrating bugs I've solved — not because it was complicated, but because it was undocumented and subtle. The lesson?
 
 > Sometimes the framework changes, and it's not your fault. But debugging it will grow you more than any tutorial ever will.
 
